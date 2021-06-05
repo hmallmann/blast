@@ -6,7 +6,7 @@
 
     if( !isset($numbers) )
     {
-        $numbers = \App\Models\Number::getNumberList();
+        $numbers = \App\Models\Number::getNumbersList();
     }
 
     $selectedNumber = null;

@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="title" class="col-md-2 col-form-label text-md-right">Name</label>
+                            <label for="number" class="col-md-2 col-form-label text-md-right">Number</label>
 
                             <div class="col-md-6">
                                 <input id="number" type="text"

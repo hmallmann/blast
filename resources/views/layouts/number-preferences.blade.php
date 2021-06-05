@@ -9,7 +9,7 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <a href="{{route("create-number-preference", [ 'number' => isset($number) ? $number->id : null ])}}" class="btn btn-block btn-info btn-lg">Create Number Preference</a>
+                    <a href="{{route("create-number-preference", [ 'number_id' => isset($number) ? $number->id : null ])}}" class="btn btn-block btn-info btn-lg">Create Number Preference</a>
                 </div>
                 <div class="box">
                     <div class="box-body">
@@ -37,10 +37,10 @@
                                     </td>
 
                                     <td>
-                                        {{$number_preference->number()->customer()->name}}
+                                        {{$number_preference->number() != null && $number_preference->number()->customer() != null ? $number_preference->number()->customer()->name : ''}}
                                     </td>
                                     <td>
-                                        {{$number_preference->number()->number}}
+                                        {{isset($number_preference->number()->number) ? $number_preference->number()->number : ''}}
                                     </td>
                                     <td>
                                         {{$number_preference->name}}
@@ -78,7 +78,7 @@
         function deleteItem(id) {
             var result = confirm("Do you really want to delete this item?");
             if (result == true) {
-                window.location = "{{route('delete-number-preference', ['id'=>' '])}}/" + id;
+                window.location = "/delete-number-preference/" + id;
             }
         }
     </script>

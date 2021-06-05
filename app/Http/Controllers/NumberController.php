@@ -49,7 +49,7 @@ class NumberController extends Controller
         $number = Number::find( $id );
 
         if ( $number )
-            $number->softDelete();
+            $number->delete();
 
         return response()->redirectTo('/numbers' );
     }

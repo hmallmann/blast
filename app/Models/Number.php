@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Number
@@ -73,6 +74,8 @@ class Number extends Model
 
     public static function getNumbersList()
     {
-        return self::select('numbers.id', "CONCAT(numbers.number, ' - ', ( SELECT name FROM customers WHERE id = numbers.customer_id)) AS title")->get();
+        return DB::table('numbers')
+                        ->join('customers', 'numbers.customer_id', '=', 'customers.id')
+                        ->selectRaw("numbers.id, CONCAT(numbers.number, ' - ', ( SELECT name FROM customers WHERE id = numbers.customer_id)) AS title")->get();
     }
 }

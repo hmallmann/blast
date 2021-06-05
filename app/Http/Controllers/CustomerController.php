@@ -38,7 +38,7 @@ class CustomerController extends Controller
         $customer = Customer::find( $id );
 
         if ( $customer )
-            $customer->softDelete();
+            $customer->delete();
 
         return response()->redirectTo('/admin/products' );
     }

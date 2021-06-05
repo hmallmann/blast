@@ -20,7 +20,7 @@ class NumberPreferenceController extends Controller
         return view('layouts.number-preferences',
                         ['number_preferences' => $number_id?NumberPreference::where('number_id', $number_id)->get() : NumberPreference::all(),
                          'numbers' => Number::all(),
-                         'number' => $number ?? null,
+                         'number' => $number ? $number : null,
                          'customer' => $number ? $number->customer() : null,
                         ]);
     }
@@ -40,7 +40,7 @@ class NumberPreferenceController extends Controller
         $numberPreference = NumberPreference::find( $id );
 
         if ( $numberPreference )
-            return view('layouts.editors.number-preference-editor', [ 'number-preference' => $numberPreference ] );
+            return view('layouts.editors.number-preference-editor', [ 'number_preference' => $numberPreference ] );
         else
             return redirect()->back(404)->withErrors(['This number preference id does not exists.']);
     }
@@ -50,7 +50,7 @@ class NumberPreferenceController extends Controller
         $numberPreference = NumberPreference::find( $id );
 
         if ( $numberPreference )
-            $numberPreference->softDelete();
+            $numberPreference->delete();
 
         return response()->redirectTo('/number-preferences/' . $numberPreference->number_id );
     }

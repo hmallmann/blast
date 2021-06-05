@@ -23,7 +23,7 @@ class CreateNumbersTable extends Migration
         });
 
         Schema::table('numbers', function (Blueprint $table) {
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->cascadeOnDelete();
         });
     }
 

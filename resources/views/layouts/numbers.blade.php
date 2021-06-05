@@ -79,7 +79,7 @@
         function deleteItem(id) {
             var result = confirm("Do you really want to delete this item?");
             if (result == true) {
-                window.location = "{{route('delete-number', ['id'=>' '])}}/" + id;
+                window.location = "/delete-number/" + id;
             }
         }
     </script>

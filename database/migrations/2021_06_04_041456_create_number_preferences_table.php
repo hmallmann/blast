@@ -23,7 +23,7 @@ class CreateNumberPreferencesTable extends Migration
         });
 
         Schema::table('number_preferences', function (Blueprint $table) {
-            $table->foreign('number_id')->references('id')->on('numbers');
+            $table->foreign('number_id')->references('id')->on('numbers')->cascadeOnDelete();
         });
     }
 
