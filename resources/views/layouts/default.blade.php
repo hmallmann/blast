@@ -19,8 +19,8 @@
         <link rel="stylesheet" href="/css/admin/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        {{--<link rel="stylesheet" href="/css/admin/skins/_all-skins.min.css">--}}
-        <link rel="stylesheet" href="/css/admin/skins/skin-red.css">
+{{--        <link rel="stylesheet" href="/css/admin/skins/_all-skins.min.css">--}}
+        <link rel="stylesheet" href="/css/admin/skins/skin-blue.css">
 
         <link rel="stylesheet" href="/css/admin/admin.css">
 
@@ -33,7 +33,7 @@
 
         <![endif]-->
     </head>
-    <body class="hold-transition skin-red sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             @include('layouts.components.header')
             @include('layouts.components.menu')

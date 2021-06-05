@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Utilities\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\UpdateProfileInformationForm;
 use Livewire\Livewire;

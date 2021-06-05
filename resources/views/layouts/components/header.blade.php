@@ -1,7 +1,7 @@
 <header class="main-header">
     <a href="#" class="logo">
         <span class="logo-mini"><b>Adm</b></span>
-        <span class="logo-lg"><b>Administrativo</b></span>
+        <span class="logo-lg"><b>Admin Panel</b></span>
     </a>
 
     <nav class="navbar navbar-static-top">
