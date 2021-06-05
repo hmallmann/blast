@@ -1,0 +1,51 @@
+version: '3.2'
+volumes:
+  data:
+
+services:
+  blast:
+    container_name: blast-sistema
+    image: eduardorgd/php8:php8-apache2-composer-node
+    restart: always
+    tty: true
+    privileged: true
+    networks:
+      rede-blast:
+        ipv4_address: 55.0.0.10
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    ports:
+      - 8055:80
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www/html
+  mysql-blast:
+    container_name: blast-mysql
+    image: mysql:5.7
+    restart: always
+    tty: true
+    privileged: true
+    networks:
+      rede-blast:
+        ipv4_address: 55.0.0.11
+    ports:
+      - "3355:3306"
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_DATABASE=blast
+
+networks:
+  rede-blast:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 55.0.0.1/24
+
